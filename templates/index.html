@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-Welcome!
+    <h1>>Welcome!</h1>
+    <p>Here are the current collections:</p>
+    <ul>
+        {% for collection in collections %}
+            <li><a href="/collections/{{ collection.id }}">{{ collection.title }}</a></li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}

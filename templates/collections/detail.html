@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ collection.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ collection.title }}</h1>
+    <div>
+    <h3>Add new item:</h3>
+        <form action="/collections/{{ collection.id }}/items" method="POST">
+            Name: <input type="text" name="name">
+            Category: <input type="text" name="category">
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+    {% for item in collection.items %}
+        <p>{{ item.name }}</p>
+    {% endfor %}
+    </div>
+{% endblock %}
